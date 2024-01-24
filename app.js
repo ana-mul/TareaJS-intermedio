@@ -69,6 +69,40 @@ console.log(emociones("triste"));
 // robots enamorados de plantas y astronautas perdidos en el espacio con una
 // mascota alienígena
 
+let personajes = [
+  "un elefante jazzista ",
+  "un perezoso políglota ",
+  "un canario que volaba marcha atrás ",
+  "un gato acróbata ",
+  "un cienpiés comediante ",
+];
+let trama = [
+  "que decidió formar una banda y organizar un espectáculo para toda la selva ",
+  "que encontró una moneda y decidió jugar la lotería ",
+  "que hablaba con los árboles, quienes le cuentan los secretos de los otros animales que viven en la selva ",
+  "que arreglaba su moto voladora ",
+  "que contaba las estrellas para poder dormir ",
+];
+let desenlace = [
+  "y así logró irse de viaje junto con ",
+  "y de repente escuchó un ruido fuerte y del miedo fue en busca de compañía hasta la casa de ",
+  "y decidió unirse a un circo y viajar por todo el mundo junto con ",
+  "y recordaba la vez que participó de un concurso de ronquidos en el cual el ganador fue ",
+  "y observaba como los animales de la selva se divierten en la fiesta a la que no fue invitado, organizada por ",
+];
+
+let absurda = () =>{
+  let personajesRandom = Math.floor(Math.random() * personajes.length);
+  let tramaRandom = Math.floor(Math.random() * trama.length);
+  let desenlaceRandom = Math.floor(Math.random() * desenlace.length);
+  let desenlacePersonaje = Math.floor(Math.random() * personajes.length);
+  return ("Había una vez " + personajes[personajesRandom] + trama[tramaRandom] + desenlace[desenlaceRandom] + personajes[desenlacePersonaje] + ".")
+};
+
+console.log(absurda());
+
+
+
 // Simulador de Viaje en el Tiempo Musical:
 // Instrucciones: Escribe una función que, dado un año, devuelva una
 // recomendación de canciones populares de esa época. Puedes mezclar
