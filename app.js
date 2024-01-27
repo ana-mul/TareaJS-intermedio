@@ -268,39 +268,115 @@ let recetas = {
   ],
 };
 
-let titulo = () =>{
+let titulo = () => {
   let nombreRandom = Math.floor(Math.random() * recetas.nombreReceta.length);
-  return recetas.nombreReceta[nombreRandom]
-}
-let tecnicasC = ()=>{
-  let tecnicaRandomClasica = Math.floor(Math.random() * recetas.tecnicasClasicas.length);
-  return recetas.tecnicasClasicas[tecnicaRandomClasica] 
-}
-let tecnicasF = ()=>{
-    let tecnicaRandomFuturista = Math.floor(Math.random() * recetas.tecnicasFuturistas.length);
-  return recetas.tecnicasFuturistas[tecnicaRandomFuturista]
-}
+  return recetas.nombreReceta[nombreRandom];
+};
+let tecnicasC = () => {
+  let tecnicaRandomClasica = Math.floor(
+    Math.random() * recetas.tecnicasClasicas.length
+  );
+  return recetas.tecnicasClasicas[tecnicaRandomClasica];
+};
+let tecnicasF = () => {
+  let tecnicaRandomFuturista = Math.floor(
+    Math.random() * recetas.tecnicasFuturistas.length
+  );
+  return recetas.tecnicasFuturistas[tecnicaRandomFuturista];
+};
 
-let ingrediente = ()=>{
-  let ingredienteRandom = Math.floor(Math.random() * recetas.ingredientes.length);
-  return recetas.ingredientes[ingredienteRandom]
-}
-let mayus = (palabra) =>{
-  if (typeof palabra !== 'string' || palabra.length === 0) {
+let ingrediente = () => {
+  let ingredienteRandom = Math.floor(
+    Math.random() * recetas.ingredientes.length
+  );
+  return recetas.ingredientes[ingredienteRandom];
+};
+let mayus = (palabra) => {
+  if (typeof palabra !== "string" || palabra.length === 0) {
     return palabra;
   }
   return palabra.charAt(0).toUpperCase() + palabra.slice(1);
-}
+};
 
-let generarReceta = () =>{
-  let randomReceta ="";
+let generarReceta = () => {
+  let randomReceta = "";
   console.log(`Te recomendamos que hagas la siguiente receta: ${titulo()}. Para la cual vas a necesitar realizar los siguientes pasos:
   1-${mayus(tecnicasC())} ${ingrediente()} junto con ${ingrediente()}
   2-Luego ${tecnicasF()} por 15 minutos
   3-Agregar paulatinamente ${ingrediente()} y ${ingrediente()}
   4-Junto con ${ingrediente()} ${tecnicasC()} opcionalmente ${ingrediente()}
-  5-Finalmente ${tecnicasF()} y servir`)
-  return randomReceta
+  5-Finalmente ${tecnicasF()} y servir`);
+  return randomReceta;
 };
 
 console.log(generarReceta());
+
+// Generador de Planetas Fantásticos:
+// Instrucciones: Escribe una función que genere nombres y características
+// únicas para planetas imaginarios. Combina elementos como colores,
+// elementos químicos y fenómenos cósmicos para crear mundos asombrosos.
+let planetas = {
+  nombres: [
+    "Xyron Prime",
+    "Nebulón",
+    "Arcadia IX",
+    "Zyphoria",
+    "Quasaría Eterna",
+  ],
+  colores: [
+    "esmeralda encantada",
+    "cielo estelar",
+    "púrpura nebulosa",
+    "ámbar místico",
+    "coral celestial",
+  ],
+  elementos: [
+    "celenio",
+    "neón",
+    "hidrógeno",
+    "helio",
+    "carbono",
+    "oxígeno",
+    "hierro",
+    "oro",
+    "plata",
+    "uranio",
+  ],
+  fenomenos: [
+    "agujeros negros",
+    "supernovas",
+    "agujeros de gusano",
+    "rayos gamma",
+    "radiación cósmica de fondo",
+  ],
+};
+
+let generadorNombre = () => {
+  let nombrePlaneta = Math.floor(Math.random() * planetas.nombres.length);
+  return planetas.nombres[nombrePlaneta];
+};
+
+let generadorColor = () => {
+  let colorPlaneta = Math.floor(Math.random() * planetas.colores.length);
+  return planetas.colores[colorPlaneta];
+};
+
+let generadorElementos = () => {
+  let elementosPlaneta = Math.floor(Math.random() * planetas.elementos.length);
+  return planetas.elementos[elementosPlaneta];
+};
+
+let generadorFenomeno = () => {
+  let fenomenosPlaneta = Math.floor(Math.random() * planetas.fenomenos.length);
+  return planetas.fenomenos[fenomenosPlaneta];
+};
+
+let generadorPlaneta = () => {
+  let planeta = "";
+  console.log(
+    `Bienvenido al planeta ${generadorNombre()}, este planeta esta formado por dos elementos, ${generadorElementos()} y ${generadorElementos()}. Se distingue principalmente por su color ${generadorColor()}. Esperamos que en tu estadía puedas tener la experiencia de observar ${generadorFenomeno()}. Gracias por visitarnos!`
+  );
+  return planeta;
+};
+
+console.log(generadorPlaneta());
