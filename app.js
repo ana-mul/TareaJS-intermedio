@@ -11,7 +11,7 @@ let palabras = [
   "ampuloso ",
   "ñoñería ",
   "rebolico ",
-  "fufurufa",
+  "fufurufa ",
 ];
 let animales = [
   "plumiferojade ",
@@ -48,7 +48,7 @@ console.log(banda());
 // correspondiente. ¡Añade una dosis de humor a tus emociones!
 
 let emociones = (emocion) => {
-  let emoji = ""; //esto lo hice porque sino en consola veia el emoji y por debajo undefined
+  let emoji = "";
   if (emocion === "feliz") {
     console.log("😄");
   } else if (emocion === "triste") {
@@ -88,20 +88,25 @@ let desenlace = [
   "y de repente escuchó un ruido fuerte y del miedo fue en busca de compañía hasta la casa de ",
   "y decidió unirse a un circo y viajar por todo el mundo junto con ",
   "y recordaba la vez que participó de un concurso de ronquidos en el cual el ganador fue ",
-  "y observaba como los animales de la selva se divierten en la fiesta a la que no fue invitado, organizada por ",
+  "y observaba como los animales de la selva se divertían en la fiesta a la que no fue invitado, organizada por ",
 ];
 
-let absurda = () =>{
+let absurda = () => {
   let personajesRandom = Math.floor(Math.random() * personajes.length);
   let tramaRandom = Math.floor(Math.random() * trama.length);
   let desenlaceRandom = Math.floor(Math.random() * desenlace.length);
-  let desenlacePersonaje = Math.floor(Math.random() * personajes.length);
-  return ("Había una vez " + personajes[personajesRandom] + trama[tramaRandom] + desenlace[desenlaceRandom] + personajes[desenlacePersonaje] + ".")
+  let desenlacePersonaje = Math.floor(Math.random() * personajes.length); //otra variable de personajes para que me de uno distinto al primero
+  return (
+    "Había una vez " +
+    personajes[personajesRandom] +
+    trama[tramaRandom] +
+    desenlace[desenlaceRandom] +
+    personajes[desenlacePersonaje] +
+    "."
+  );
 };
 
 console.log(absurda());
-
-
 
 // Simulador de Viaje en el Tiempo Musical:
 // Instrucciones: Escribe una función que, dado un año, devuelva una
@@ -211,3 +216,91 @@ let recomendaciones = (año) => {
 };
 
 console.log(recomendaciones(2010));
+
+// Creador de Recetas Culinarias del Futuro:
+// Instrucciones: Escribe una función que genere recetas culinarias futuristas
+// combinando ingredientes inusuales y técnicas de cocina avanzadas. ¡Haz
+// que la comida del futuro sea emocionante y deliciosa!
+
+let recetas = {
+  ingredientes: [
+    "polvo de algas espaciales",
+    "quinoa extraterrestre",
+    "aceite de nubes",
+    "perlas de luna",
+    "hongos de Júpiter",
+    "caviar de Plutón",
+    "miel de meteorito",
+    "sal de Saturno",
+    "harina de asteroides",
+    "especias de luz solar",
+    "salsa de lava",
+    "agua de luna",
+    "polvo de gravedad cero",
+    "tomates de exploplanetas",
+    "ajo de Venus",
+    "sal de estrellas",
+    "pimienta de Urano",
+    "vinagre de Saturno",
+  ],
+
+  tecnicasFuturistas: [
+    "criolizar",
+    "cuarzulizar",
+    "nanoinfusionar",
+    "fusionar gravitacionalmente",
+    "biotransferenciar",
+  ],
+  tecnicasClasicas: [
+    "mezclar",
+    "batir",
+    "integrar",
+    "agregar",
+    "espolvorear",
+    "tamizar",
+  ],
+  nombreReceta: [
+    "Estofado de Nebulosa Brillante",
+    "Ñoquis de Gravedad Cero",
+    "Sinfonía de Microgravedad",
+    "Ensalada de Aurora",
+    "Pastel de Luna",
+  ],
+};
+
+let titulo = () =>{
+  let nombreRandom = Math.floor(Math.random() * recetas.nombreReceta.length);
+  return recetas.nombreReceta[nombreRandom]
+}
+let tecnicasC = ()=>{
+  let tecnicaRandomClasica = Math.floor(Math.random() * recetas.tecnicasClasicas.length);
+  return recetas.tecnicasClasicas[tecnicaRandomClasica] 
+}
+let tecnicasF = ()=>{
+    let tecnicaRandomFuturista = Math.floor(Math.random() * recetas.tecnicasFuturistas.length);
+  return recetas.tecnicasFuturistas[tecnicaRandomFuturista]
+}
+
+let ingrediente = ()=>{
+  let ingredienteRandom = Math.floor(Math.random() * recetas.ingredientes.length);
+  return recetas.ingredientes[ingredienteRandom]
+}
+let mayus = (palabra) =>{
+  if (typeof palabra !== 'string' || palabra.length === 0) {
+    return palabra;
+  }
+  return palabra.charAt(0).toUpperCase() + palabra.slice(1);
+}
+
+let generarReceta = () =>{
+  let randomReceta ="";
+  console.log(`Te recomendamos que hagas la siguiente receta: ${titulo()}. Para la cual vas a necesitar realizar los siguientes pasos:
+  1-${mayus(tecnicasC())} ${ingrediente()} junto con ${ingrediente()}
+  2-Luego ${tecnicasF()} por 15 minutos
+  3-Agregar paulatinamente ${ingrediente()} y ${ingrediente()}
+  4-Junto con ${ingrediente()} ${tecnicasC()} opcionalmente ${ingrediente()}
+  5-Finalmente ${tecnicasF()} y servir`)
+  return randomReceta
+};
+
+console.log(generarReceta());
